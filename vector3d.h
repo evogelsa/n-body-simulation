@@ -1,21 +1,21 @@
 #ifndef VECTOR3D_H
 #define VECTOR3D_H
 
-#include <iostream>
 #include <cmath>
+#include <iostream>
 
 class Vector3D {
-  public:
-    Vector3D() {}
-    Vector3D(double, double, double);
+ public:
+  Vector3D() {}
+  Vector3D(double, double, double);
 
-    double x;
-    double y;
-    double z;
+  double x;
+  double y;
+  double z;
 
-    double length();
+  double length();
 
-    Vector3D& operator+=(const Vector3D&);
+  Vector3D& operator+=(const Vector3D&);
 };
 
 std::ostream& operator<<(std::ostream&, const Vector3D&);

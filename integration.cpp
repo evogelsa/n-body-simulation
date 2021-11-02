@@ -3,7 +3,7 @@
 const double G = 6.674e-11;
 
 RK4::RK4(std::vector<Body> bodies, double time_step)
-    : bodies(bodies), time_step(time_step) {};
+    : bodies(bodies), time_step(time_step){};
 
 Vector3D RK4::single_body_accel(int index) {
   Vector3D accel = Vector3D(0, 0, 0);
@@ -21,7 +21,8 @@ Vector3D RK4::single_body_accel(int index) {
 
       // double r = (std::pow((target_body.position.x - other->position.x), 2)
       //             + std::pow((target_body.position.y - other->position.y), 2)
-      //             + std::pow((target_body.position.z - other->position.z), 2));
+      //             + std::pow((target_body.position.z - other->position.z),
+      //             2));
       //
       // r = std::sqrt(r);
 
@@ -50,12 +51,10 @@ Vector3D RK4::single_body_accel(int index) {
   return accel;
 }
 
-Vector3D RK4::partial_step(Vector3D& f, Vector3D& df, double scale) {
-  return Vector3D(
-      f.x + df.x * time_step * scale,
-      f.y + df.y * time_step * scale,
-      f.z + df.z * time_step * scale
-  );
+Vector3D RK4::partial_step(Vector3D &f, Vector3D &df, double scale) {
+  return Vector3D(f.x + df.x * time_step * scale,
+                  f.y + df.y * time_step * scale,
+                  f.z + df.z * time_step * scale);
 }
 
 void RK4::update_velocity() {
@@ -76,10 +75,10 @@ void RK4::gravity_step() {
   update_position();
 }
 
-void RK4::log_state(std::ofstream& ofs) {
+void RK4::log_state(std::ofstream &ofs) {
   int i = 0;
   for (auto body = bodies.begin(); body != bodies.end(); *body++, i++) {
-    ofs << i << "," << body->position.x << "," << body->position.y
-        << "," << body->position.z << std::endl;
+    ofs << i << "," << body->position.x << "," << body->position.y << ","
+        << body->position.z << std::endl;
   }
 }

@@ -7,13 +7,13 @@
 #include "vector3d.h"
 
 class Body {
-  public:
-    Body(Vector3D, Vector3D, double);
+ public:
+  Body(Vector3D, Vector3D, double);
 
-    Vector3D position;
-    Vector3D velocity;
-    double mass;
-    std::vector<Vector3D> positions;
+  Vector3D position;
+  Vector3D velocity;
+  double mass;
+  std::vector<Vector3D> positions;
 };
 
 std::ostream& operator<<(std::ostream&, const Body&);

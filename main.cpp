@@ -1,12 +1,12 @@
-#include <iostream>
-#include <fstream>
-#include <vector>
 #include <cstdio>
+#include <fstream>
+#include <iostream>
 #include <random>
+#include <vector>
 
-#include "vector3d.h"
-#include "integration.h"
 #include "body.h"
+#include "integration.h"
+#include "vector3d.h"
 
 int main() {
   const double time_step = 1;
@@ -40,7 +40,8 @@ int main() {
   RK4 simulation(bodies, time_step);
 
   for (int i = 0; i < max_steps; i++) {
-    printf("\r%d / %d (%0.1f%%)", i+1, max_steps, (float)(i + 1) / max_steps * 100);
+    printf("\r%d / %d (%0.1f%%)", i + 1, max_steps,
+           (float)(i + 1) / max_steps * 100);
     std::fflush(stdout);
 
     simulation.gravity_step();
