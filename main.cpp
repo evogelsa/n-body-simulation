@@ -9,15 +9,16 @@
 #include "vector3d.h"
 
 int main() {
-  const double time_step = 1;
-  const int max_time = 1000;
+  const double time_step = 0.1;
+  const int max_time = 5000;
   const int max_steps = max_time / time_step;
-  const int log_resolution = 10;
+  const int points_per_body = 1000;
+  const int log_resolution = max_steps / points_per_body;
 
   std::vector<Body> bodies;
-  bodies.push_back(Body(Vector3D(0, 1, 2), Vector3D(0, 0, 0), 1e5));
-  bodies.push_back(Body(Vector3D(1, -2, 1), Vector3D(0, 0, 1e-3), 1e5));
-  bodies.push_back(Body(Vector3D(-1, 0, -1), Vector3D(0, 1e-3, 0), 1e5));
+  bodies.push_back(Body(Vector3D(0, 0, 0), Vector3D(0, 0, -1e-2), 1e6));
+  bodies.push_back(Body(Vector3D(0, 1, 0), Vector3D(1e-2, 1e-3, 0), 1e6));
+  bodies.push_back(Body(Vector3D(0, 0, 1), Vector3D(-1e-3, 0, 1e-3), 1e5));
 
   // std::default_random_engine generator;
   // std::uniform_real_distribution<double> distribution(-1.0, 1.0);

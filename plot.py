@@ -29,6 +29,14 @@ def main():
         ax.scatter(bodies[body]['x'], bodies[body]['y'], bodies[body]['z'], 'o')
 
 
+    ax.set_xlim3d(-3, 10)
+    ax.set_ylim3d(-3, 10)
+    ax.set_zlim3d(-10, 3)
+
+    ax.set_xlabel('x axis')
+    ax.set_ylabel('y axis')
+    ax.set_zlabel('z axis')
+
     if '-i' in sys.argv:
         plt.show()
     else:
