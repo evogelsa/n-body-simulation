@@ -1,0 +1,9 @@
+const double time_step = 1;
+const int max_time = 10000;
+const int max_steps = max_time / time_step;
+const int log_resolution = 10;
+
+std::vector<Body> bodies;
+bodies.push_back(Body(Vector3D(0, 1, 2), Vector3D(0, 0, 0), 1e5));
+bodies.push_back(Body(Vector3D(1, -2, 1), Vector3D(0, 0, 1e-3), 1e5));
+bodies.push_back(Body(Vector3D(-1, 0, -1), Vector3D(0, 1e-3, 0), 1e5));

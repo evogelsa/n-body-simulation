@@ -1,0 +1,17 @@
+  std::default_random_engine generator;
+  std::uniform_real_distribution<double> distribution(0.0, 1.0);
+  std::uniform_real_distribution<double> minus_distribution(-1.0, 1.0);
+
+  int nbodies = 100;
+  for (int i = 0; i < nbodies; i++) {
+    double x = minus_distribution(generator) * 2;
+    double y = minus_distribution(generator) * 2;
+    double z = minus_distribution(generator) * 2;
+    double vx = minus_distribution(generator) * 1e-3;
+    double vy = minus_distribution(generator) * 1e-3;
+    double vz = minus_distribution(generator) * 1e-3;
+    double m = 1e5;
+
+    bodies.push_back(Body(Vector3D(x, y, z), Vector3D(vx, vy, vz), m));
+  }
+
