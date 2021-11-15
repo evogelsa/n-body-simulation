@@ -1,0 +1,10 @@
+
+const double time_step = 1;
+const int max_time = 6307;
+const int max_steps = max_time / time_step;
+const int points_per_body = 1000;
+const int log_resolution = max_steps / points_per_body;
+
+std::vector<Body> bodies;
+bodies.push_back(Body(Vector3D(0, 0, 0), Vector3D(0, 0, 0), 6e24));
+bodies.push_back(Body(Vector3D(7378140, 0, 0), Vector3D(0, 7350, 0), 1e3));
