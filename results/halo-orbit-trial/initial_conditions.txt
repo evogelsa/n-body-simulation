@@ -1,0 +1,27 @@
+// earth
+const double r_e = 0;
+const double v_e = 0;
+const double m_e = 5.97e24;
+bodies.push_back(Body(
+      Vector3D(r_e, 0, 0),
+      Vector3D(0, v_e, 0),
+      m_e
+));
+
+// moon
+const double r_m = 3.844e8;
+const double v_m = 1020;
+const double m_m = 7.3459e22;
+bodies.push_back(Body(
+      Vector3D(r_m, 0, 0),
+      Vector3D(0, v_m, 0),
+      m_m
+));
+
+// satellite
+const double m_s = 1e3;
+bodies.push_back(Body(
+      Vector3D(-333326298.9295349, 19007567.817135274, -271161377.07902527),
+      Vector3D(790.6644000361339, -17.607214696246114, -1093.2669313970146),
+      m_s
+));

@@ -58,7 +58,9 @@ Vector3D RK4::partial_step(Vector3D &f, Vector3D &df, double scale) {
 }
 
 void RK4::update_velocity() {
-  for (int i = 0; i < bodies.size(); i++) {
+  int i;
+#pragma omp parallel for schedule(dynamic) private(i) shared(bodies, time_step)
+  for (i = 0; i < bodies.size(); i++) {
     Vector3D accel = RK4::single_body_accel(i);
     bodies[i].velocity += accel * time_step;
   }

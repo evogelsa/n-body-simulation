@@ -5,6 +5,7 @@
 #include <fstream>
 #include <iostream>
 #include <vector>
+#include <omp.h>
 
 #include "body.h"
 #include "vector3d.h"
