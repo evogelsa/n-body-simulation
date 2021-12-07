@@ -3,14 +3,15 @@
 #include <iostream>
 #include <random>
 #include <vector>
+#include <cmath>
 
 #include "body.h"
 #include "integration.h"
 #include "vector3d.h"
 
 int main() {
-  const double time_step = 60;
-  const int max_time = 365*24*60*60;
+  const double time_step = 6;
+  const int max_time = 28*24*60*60;
   const unsigned long long max_steps = max_time / time_step;
   const int points_per_body = 1000;
   const int log_resolution = max_steps / points_per_body;
@@ -37,19 +38,19 @@ int main() {
         m_m
   ));
 
+  // L4 lagrange point
+  const double l4_x = r_m / 2.0;
+  const double l4_y = r_m * std::sqrt(3) / 2;
+
   // satellite
   const double m_s = 1e3;
+  const double v_x = -v_m * std::cos(M_PI / 6);
+  const double v_y = v_m * std::sin(M_PI / 6);
   bodies.push_back(Body(
-        Vector3D(-333326298.9295349, 19007567.817135274, -271161377.07902527),
-        Vector3D(790.6644000361339, -17.607214696246114, -1093.2669313970146),
-        m_s
+      Vector3D(l4_x, l4_y, 0),
+      Vector3D(v_x, v_y, 0),
+      m_s
   ));
-  // const double m_s = 1e3;
-  // bodies.push_back(Body(
-  //       Vector3D(363014796.06842, -9643291.06731, 1032449.86122),
-  //       Vector3D(885.94768, -825.10859, -82.91827),
-  //       m_s
-  // ));
 
   // std::default_random_engine generator;
   // std::uniform_real_distribution<double> distribution(-1.0, 1.0);

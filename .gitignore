@@ -1,2 +1,6 @@
 # binaries
 *.out
+
+# outputs
+output.csv
+output.png
