@@ -3,6 +3,7 @@
 #include <fstream>
 #include <iostream>
 #include <random>
+#include <sys/time.h>
 #include <vector>
 
 #include "body.h"
@@ -12,7 +13,7 @@
 int main() {
   // simulation parameters
   const double time_step = 1;
-  const int max_time = 60 * 60;
+  const int max_time = 1000;
   const unsigned long long max_steps = max_time / time_step;
   const int points_per_body = 1000;
   const int log_resolution = max_steps / points_per_body;
@@ -44,6 +45,12 @@ int main() {
   // create a simulation instance
   RK4 simulation(bodies, time_step);
 
+  // measure time to complete simulation
+  struct timeval t0, t1;
+  double elapsed = 0;
+
+  gettimeofday(&t0, NULL);
+
   // simulate for determined number of steps
   for (int i = 0; i < max_steps; i++) {
     // print progress
@@ -58,8 +65,13 @@ int main() {
     if (i % log_resolution == 0)
       simulation.log_state(output);
   }
-
   printf("\n");
+
+  gettimeofday(&t1, NULL);
+
+  elapsed = (t1.tv_sec - t0.tv_sec) + (t1.tv_usec - t0.tv_usec) / 1e6;
+
+  printf("Elapsed time: %fs\n", elapsed);
 
   return 0;
 }
