@@ -6,8 +6,9 @@
 
 #include "vector3d.h"
 
+// Body class holds information for one body in the simulation
 class Body {
- public:
+public:
   Body(Vector3D, Vector3D, double);
 
   Vector3D position;
@@ -16,6 +17,7 @@ class Body {
   std::vector<Vector3D> positions;
 };
 
-std::ostream& operator<<(std::ostream&, const Body&);
+// overload << to output to file
+std::ostream &operator<<(std::ostream &, const Body &);
 
 #endif
