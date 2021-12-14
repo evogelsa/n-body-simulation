@@ -1,0 +1,17 @@
+// randomly generate initial conditions for each body
+std::default_random_engine generator;
+std::uniform_real_distribution<double> distribution(-1.0, 1.0);
+
+// create each body with initial conditions and add to vector
+int nbodies = 1000;
+for (int i = 0; i < nbodies; i++) {
+  double x = distribution(generator) * 2;
+  double y = distribution(generator) * 2;
+  double z = distribution(generator) * 2;
+  double vx = distribution(generator) * 1e-3;
+  double vy = distribution(generator) * 1e-3;
+  double vz = distribution(generator) * 1e-3;
+  double m = 1e5;
+
+  bodies.push_back(Body(Vector3D(x, y, z), Vector3D(vx, vy, vz), m));
+}
