@@ -1,4 +1,9 @@
-# Restricted 3-body Problem - Ethan Vogelsang
+# Restricted 3-body Problem
+
+## Foreword
+
+This document is best viewed in the PDF format so the math renders correctly.
+The PDF version can be viewed [here](figs/readme.pdf) in the figs directory.
 
 ## Introduction
 
