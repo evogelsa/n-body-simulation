@@ -1,13 +1,15 @@
 build:
-	g++ main.cpp integration.cpp vector3d.cpp body.cpp -o main.out -fopenmp
+	cd src/ && g++ main.cpp integration.cpp vector3d.cpp body.cpp -o ../main.out -fopenmp
+	mkdir -p build
+	mv main.out build/
 
 run:
-	./main.out
+	build/main.out
 
 build-run: build run
 
 clean:
-	rm *.out
+	rm build/*.out
 
 clean-deep: clean
-	rm output.csv
+	rm build/output.csv
