@@ -48,15 +48,22 @@ method of numerical integration [2]. Given an initial value problem established
 by the following:
 
 $$\ddot{x} = f(t, x)$$
+
 $$x(t_0) = x_0$$
 
 The next state of $x$ can be calculated using
+
 $$x_{n+1} = x_n + \frac{1}{6} h (k_1 + 2k_2 + 2k_3 + k_4)$$
+
 where $h$ is the time step, and $k_1$, $k_2$, $k_3$, and $k_4$ are defined as
 follows:
+
 $$k_1 = f(t_n, x_n)$$
+
 $$k_2 = f(t_n + \frac{h}{2}, x_n + h \frac{k_1}{2})$$
+
 $$k_3 = f(t_n + \frac{h}{2}, x_n + h \frac{k_2}{2})$$
+
 $$k_4 = f(t_n + h, x_n + h k_3)$$
 
 This RK4 computation is performed for each time step of the simulation, and in
